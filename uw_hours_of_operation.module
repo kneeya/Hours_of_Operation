@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the Hours of Operation feature.
+ */
+
+include_once 'uw_hours_of_operation.features.inc';
