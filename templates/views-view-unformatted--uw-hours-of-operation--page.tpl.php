@@ -4,20 +4,19 @@
  * @file
  * Default simple view template to display a list of rows.
  *
+ *
  * @ingroup views_templates
- */
-?>
+ */ ?>
 
 <?php if (!empty($title)): ?>
-    <h2><?php print $title; ?></h2>
+    <h3><?php print $title; ?></h3>
 <?php endif; ?>
 <?php foreach ($rows as $id => $row): ?>
-    <div class="<?php print $classes_array[$id]; ?> clearfix">
+    <div class="event clearfix">
         <?php print $row; ?>
-    </div>
-<?php endforeach; ?>
+    </div> <?php endforeach; ?>
 
-<h2>CATS</h2>
+<h2>TEST</h2>
 
 
 
