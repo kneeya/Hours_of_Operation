@@ -5,7 +5,7 @@
  * Code for the Hours of Operation feature.
  */
 
-include_once 'uw_hours_of_operation.features.inc';
+include_once 'hours_of_operation.features.inc';
 
 /**
  * Implements hook_theme().
@@ -13,9 +13,9 @@ include_once 'uw_hours_of_operation.features.inc';
  * Adds views-related template files.
  */
 
-function uw_hours_of_operation_theme($existing, $type, $theme, $path) {
+function hours_of_operation_theme($existing, $type, $theme, $path) {
     return array(
-        'views_view_unformatted__uw_hours_of_operation__page' => array(
+        'views_view_unformatted__hours_of_operation__page' => array(
             'variables' =>
                 array(
                     'view' => NULL,
@@ -23,9 +23,9 @@ function uw_hours_of_operation_theme($existing, $type, $theme, $path) {
                     'rows' => NULL,
                     'title' => NULL,
                 ),
-            'template' => 'views-view-unformatted--uw-hours-of-operation--page',
+            'template' => 'views-view-unformatted--hours-of-operation--page',
             'base hook' => 'views_view_unformatted',
-            'path' => drupal_get_path('module', 'uw_hours_of_operation') . '/templates',
+            'path' => drupal_get_path('module', 'hours_of_operation') . '/templates',
             'preprocess functions' => array(
                 'template_preprocess',
                 'template_preprocess_views_view_unformatted',
