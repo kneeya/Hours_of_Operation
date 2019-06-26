@@ -13,23 +13,10 @@ include_once 'hours_of_operation.features.inc';
  * Adds views-related template files.
  */
 
-function hours_of_operation_theme($existing, $type, $theme, $path) {
+function hours_of_operation_views_api() {
     return array(
-        'views_view_unformatted__hours_of_operation__page' => array(
-            'variables' =>
-                array(
-                    'view' => NULL,
-                    'options' => NULL,
-                    'rows' => NULL,
-                    'title' => NULL,
-                ),
-            'template' => 'views-view-unformatted--hours-of-operation--page',
-            'base hook' => 'views_view_unformatted',
-            'path' => drupal_get_path('module', 'hours_of_operation') . '/templates',
-            'preprocess functions' => array(
-                'template_preprocess',
-                'template_preprocess_views_view_unformatted',
-            ),
-        ),
+        'api' => 3,
+        'path' => drupal_get_path('module', 'hours_of_operation'),
+        'template path' => drupal_get_path('module', 'hours_of_operation') . '/templates',
     );
 }
