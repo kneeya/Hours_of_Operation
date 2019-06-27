@@ -30,8 +30,6 @@
 </div>
 <div class="col-66">
     <?php
-    hours_of_operation_field_output($fields, 'field_description');
-    hours_of_operation_field_output($fields, 'field_menu');
     hours_of_operation_field_output($fields, 'field_opening_hours');
     if(!empty($fields['field_date_closed']) || !empty($fields['field_hours_change'])) { ?>
     <ul class="exceptions_list">
@@ -166,7 +164,4 @@
         }
         } ?>
     </ul>
-    <?php
-    hours_of_operation_field_output($fields, 'field_hours_notice');
-    ?>
 </div>
