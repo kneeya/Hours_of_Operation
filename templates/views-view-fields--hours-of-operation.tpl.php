@@ -33,8 +33,7 @@
     hours_of_operation_field_output($fields, 'field_description');
     hours_of_operation_field_output($fields, 'field_menu');
     hours_of_operation_field_output($fields, 'field_opening_hours');
-    if(!empty($fields['field_date_closed']) || !empty($fields['field_hours_change'])) {
-    echo '<h4>Exceptions:</h4>'; ?>
+    if(!empty($fields['field_date_closed']) || !empty($fields['field_hours_change'])) { ?>
     <ul class="exceptions_list">
 
         <?php
@@ -57,7 +56,7 @@
             // Exceptions - field_date_closed: no End Date.
             if (strcmp($close_date_from, $close_date_to) === 0) {
                 $display_date = date_format($date, "F j");
-                print_r('<li class="oh-display-closed-date"><span style="width: 10em">' . $display_date . ':</span><span class="oh-display-closed">Closed</span></li>');
+                print_r('<li class="oh-display-closed-date"><span style="width: 10em">' . $display_date . ': </span><span class="oh-display-closed"> Closed</span></li>');
             }
             else {
                 $close_year_from = substr($close_date_from, 0, 4);
@@ -75,20 +74,20 @@
                     // Exception - Closed: has End Date (same year, same month and different date.)
                     if (strcmp($close_month_from, $close_month_to) === 0) {
                         print_r('<li class="oh-display-closed-date"><span style="width: 10em">' . $display_month_from_format . ' ' .
-                            $display_date_from_format . ' - ' . $display_date_to_format . ':</span><span class="oh-display-closed">Closed</span></li>');
+                            $display_date_from_format . ' - ' . $display_date_to_format . ':</span><span class="oh-display-closed"> Closed</span></li>');
                     }
                     // Exception - field_date_closed: has End Date (same year, different month and different date)
                     else {
                         print_r('<li class="oh-display-closed-date"><span style="width: 10em">' . $display_month_from_format . ' ' .
                             $display_date_from_format . ' - ' . $display_month_to_format . ' ' . $display_date_to_format .
-                            ':</span><span class="oh-display-closed">Closed</span></li>');
+                            ':</span><span class="oh-display-closed"> Closed</span></li>');
                     }
                 }
                 // Exception - field_date_closed: has End Date (different year).
                 else {
                     print_r('<li class="oh-display-closed-date"><span style="width: 10em">' . $display_month_from_format . ' ' .
                         $display_date_from_format . ', ' . $close_year_from . ' - ' . $display_month_to_format . ' ' . $display_date_to_format .
-                        ', ' . $close_year_to . ':</span><span class="oh-display-closed">Closed</span></li>');
+                        ', ' . $close_year_to . ':</span><span class="oh-display-closed"> Closed</span></li>');
                 }
             }
         }
@@ -141,12 +140,12 @@
                         // Exception - field_hours_change: has End Date (same year, same month, same day.)
                         if (strcmp($change_date_from, $change_date_to) === 0) {
                             print_r('<li class="oh-display-change-hours"><span style="width: 10em">' . $display_change_month_from_format . ' ' .
-                                $display_change_date_from_format . ':</span><span>' . $time_from_12_hour . ' - ' . $time_to_12_hour . '</span></li>');
+                                $display_change_date_from_format . ': </span><span>' . $time_from_12_hour . ' - ' . $time_to_12_hour . '</span></li>');
                         }
                         // Exception - field_hours_change: has End Date (same year, same month, different day.)
                         else {
                             print_r('<li class="oh-display-change-hours"><span style="width: 10em">' . $display_change_month_from_format . ' ' .
-                                $display_change_date_from_format . ' - ' . $display_change_date_to_format . ':</span><span>' . $time_from_12_hour .
+                                $display_change_date_from_format . ' - ' . $display_change_date_to_format . ': </span><span>' . $time_from_12_hour .
                                 ' - ' . $time_to_12_hour . '</span></li>');
                         }
                     }
@@ -154,14 +153,14 @@
                     else {
                         print_r('<li class="oh-display-change-hours"><span style="width: 10em">' . $display_change_month_from_format . ' ' .
                             $display_change_date_from_format . ' - ' . $display_change_month_to_format . ' ' . $display_change_date_to_format .
-                            ':</span><span>' . $time_from_12_hour . ' - ' . $time_to_12_hour . '</span></li>');
+                            ': </span><span>' . $time_from_12_hour . ' - ' . $time_to_12_hour . '</span></li>');
                     }
                 }
                 // Exceptions - field_hours_change: has End Date (different year).
                 else {
                     print_r('<li class="oh-display-change-hours"><span style="width: 10em">' . $display_month_from_format . ' ' .
                         $display_date_from_format . ', ' . $close_year_from . ' - ' . $display_month_to_format . ' ' . $display_date_to_format .
-                        ', ' . $close_year_to . ':</span><span>' . $time_from_12_hour . ' - ' . $time_to_12_hour . '</span></li>');
+                        ', ' . $close_year_to . ': </span><span>' . $time_from_12_hour . ' - ' . $time_to_12_hour . '</span></li>');
                 }
             }
         }
