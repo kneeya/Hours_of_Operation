@@ -8,9 +8,9 @@
 include_once 'hours_of_operation.features.inc';
 
 /**
- * Implements hook_theme().
+ * Implements hook_views_api().
  *
- * Adds views-related template files.
+ * Used for enabling using templates inside my module
  */
 
 function hours_of_operation_views_api() {
@@ -20,3 +20,45 @@ function hours_of_operation_views_api() {
         'template path' => drupal_get_path('module', 'hours_of_operation') . '/templates',
     );
 }
+
+function hours_of_operation_theme_registry_alter(&$theme_registry) {
+    $theme_registry['field__field_date_closed'] = array(
+        'template' => 'field--field-date-closed',
+        'path' => drupal_get_path('module', 'hours_of_operation') . '/templates',
+        'type' => 'theme',
+    );
+}
+
+/**
+ *
+ */
+function hours_of_operation_field_output(&$fields, $fieldname) {
+    if (!empty($fields[$fieldname])) {
+        $field = $fields[$fieldname];
+
+        unset($fields[$fieldname]);
+        if (!empty($field->separator)) {
+            print $field->separator;
+        }
+        print $field->wrapper_prefix;
+        print $field->label_html;
+        print $field->content;
+        print $field->wrapper_suffix;
+    }
+}
+
+/**
+ *
+ */
+function hours_of_operation_field_exception(&$fields, $fieldname) {
+    if (!empty($fields[$fieldname])) {
+        $field = $fields[$fieldname];
+
+        unset($fields[$fieldname]);
+        if (!empty($field->separator)) {
+            print $field->separator;
+        }
+        print $field->content;
+    }
+}
+
