@@ -45,6 +45,12 @@ function hours_of_operation_views_default_views() {
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Field: Content: Location */
+  $handler->display->display_options['fields']['field_outlet_location']['id'] = 'field_outlet_location';
+  $handler->display->display_options['fields']['field_outlet_location']['table'] = 'field_data_field_outlet_location';
+  $handler->display->display_options['fields']['field_outlet_location']['field'] = 'field_outlet_location';
+  $handler->display->display_options['fields']['field_outlet_location']['label'] = '';
+  $handler->display->display_options['fields']['field_outlet_location']['element_label_colon'] = FALSE;
   /* Field: Content: Hours of Operation */
   $handler->display->display_options['fields']['field_opening_hours']['id'] = 'field_opening_hours';
   $handler->display->display_options['fields']['field_opening_hours']['table'] = 'field_data_field_opening_hours';
@@ -79,7 +85,7 @@ function hours_of_operation_views_default_views() {
   $handler->display->display_options['fields']['field_date_closed']['label'] = '';
   $handler->display->display_options['fields']['field_date_closed']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_date_closed']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'services_feed',
     'custom_date_format' => '',
     'fromto' => 'both',
     'multiple_number' => '',
@@ -96,7 +102,7 @@ function hours_of_operation_views_default_views() {
   $handler->display->display_options['fields']['field_hours_change']['label'] = '';
   $handler->display->display_options['fields']['field_hours_change']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_hours_change']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'services_feed',
     'custom_date_format' => '',
     'fromto' => 'both',
     'multiple_number' => '',
