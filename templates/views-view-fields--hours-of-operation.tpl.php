@@ -27,6 +27,7 @@
 <?php hours_of_operation_field_output($fields, 'title'); ?>
 <div class="col-33 first">
     <?php hours_of_operation_field_output($fields, 'field_image'); ?>
+    <?php hours_of_operation_field_output($fields, 'field_outlet_location'); ?>
 </div>
 <div class="col-66">
     <?php
