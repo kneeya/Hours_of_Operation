@@ -29,6 +29,8 @@
 ?>
 <div class="<?php print $classes; ?>">
     <?php print render($title_prefix); ?>
+    <p>All hours of operation are subject to change without notice.</p>
+    <p>All locations are closed on statutory holidays unless noted otherwise.</p>
     <?php if ($title): ?>
         <?php print $title; ?>
     <?php endif; ?>
@@ -38,7 +40,6 @@
             <?php print $header; ?>
         </div>
     <?php endif; ?>
-
     <?php if ($exposed): ?>
         <div class="view-filters">
             <?php print $exposed; ?>
