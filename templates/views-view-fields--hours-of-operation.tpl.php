@@ -53,7 +53,7 @@
 
             // Exceptions - field_date_closed: no End Date.
             if (strcmp($close_date_from, $close_date_to) === 0) {
-                $display_date = date_format($date, "M j");
+                $display_date = date_format($date, "M jS");
                 print_r('<li class="oh-display-closed-date"><span style="width:11.4em;">' . $display_date . ':</span><span class="oh-display-closed">Closed</span></li>');
             }
             else {
@@ -66,8 +66,8 @@
                 if (strcmp($close_year_from, $close_year_to) === 0) {
                     $display_month_from_format = date_format($date, "M");
                     $display_month_to_format = date_format($date2, "M");
-                    $display_date_from_format = date_format($date, "j");
-                    $display_date_to_format = date_format($date2, "j");
+                    $display_date_from_format = date_format($date, "jS");
+                    $display_date_to_format = date_format($date2, "jS");
 
                     // Exception - Closed: has End Date (same year, same month and different date.)
                     if (strcmp($close_month_from, $close_month_to) === 0) {
@@ -116,7 +116,7 @@
 
             // Exceptions - field_hours_change: no End Date.
             if (strcmp($change_date_from, $change_date_to) === 0 && strcmp($change_time_from, $change_time_to) === 0) {
-                $display_change_date = date_format($change_date, "M j");
+                $display_change_date = date_format($change_date, "M jS");
                 print_r('<li class="oh-display-change-hours"><span style="width:11.4em;">' . $display_change_date .
                     ':</span><span>' . $time_from_12_hour . '</span></li>');
             }
@@ -130,8 +130,8 @@
                 if (strcmp($change_year_from, $change_year_to) === 0) {
                     $display_change_month_from_format = date_format($change_date, "M");
                     $display_change_month_to_format = date_format($change_date2, "M");
-                    $display_change_date_from_format = date_format($change_date, "j");
-                    $display_change_date_to_format = date_format($change_date2, "j");
+                    $display_change_date_from_format = date_format($change_date, "jS");
+                    $display_change_date_to_format = date_format($change_date2, "jS");
 
                     // Exception - field_hours_change: has End Date (same year, same month.)
                     if (strcmp($change_month_from, $change_month_to) === 0) {
