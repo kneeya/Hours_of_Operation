@@ -29,8 +29,8 @@ function hours_of_operation_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '100';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Field: Choose an image */
@@ -69,7 +69,7 @@ function hours_of_operation_views_default_views() {
     'separator_days' => '<br />',
     'separator_grouped_days' => ' - ',
     'separator_day_hours' => ': ',
-    'separator_hours_hours' => '-',
+    'separator_hours_hours' => ' - ',
     'separator_more_hours' => ', ',
     'current_status' => array(
       'position' => 'hide',
