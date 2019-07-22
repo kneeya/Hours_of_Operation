@@ -64,8 +64,8 @@
 
                 // Exception - field_date_closed: has End Date (same year).
                 if (strcmp($close_year_from, $close_year_to) === 0) {
-                    $display_month_from_format = date_format($date, "M");
-                    $display_month_to_format = date_format($date2, "M");
+                    $display_month_from_format = uw_month_name_short($date->format('n'));
+                    $display_month_to_format = uw_month_name_short($date2->format('n'));
                     $display_date_from_format = date_format($date, "jS");
                     $display_date_to_format = date_format($date2, "jS");
 
@@ -128,8 +128,8 @@
 
                 // Exceptions - field_hours_change: has End Date (same year).
                 if (strcmp($change_year_from, $change_year_to) === 0) {
-                    $display_change_month_from_format = date_format($change_date, "M");
-                    $display_change_month_to_format = date_format($change_date2, "M");
+                    $display_change_month_from_format = uw_month_name_short($date->format('n'));
+                    $display_change_month_to_format = uw_month_name_short($date2->format('n'));
                     $display_change_date_from_format = date_format($change_date, "jS");
                     $display_change_date_to_format = date_format($change_date2, "jS");
 
