@@ -8,25 +8,31 @@
 include_once 'hours_of_operation.features.inc';
 
 /**
- * Implements hook_views_api().
- *
- * Used for enabling using templates inside my module
+ * Implements hook_theme_registry_alter().
  */
-
-function hours_of_operation_views_api() {
-    return array(
-        'api' => 3,
-        'path' => drupal_get_path('module', 'hours_of_operation'),
-        'template path' => drupal_get_path('module', 'hours_of_operation') . '/templates',
-    );
-}
-
 function hours_of_operation_theme_registry_alter(&$theme_registry) {
-    $theme_registry['field__field_date_closed'] = array(
-        'template' => 'field--field-date-closed',
-        'path' => drupal_get_path('module', 'hours_of_operation') . '/templates',
-        'type' => 'theme',
-    );
+    $extension = '.tpl.php';
+    $module_path = drupal_get_path('module', 'hours_of_operation');
+    $files = file_scan_directory($module_path . '/templates', '/' . preg_quote($extension) . '$/');
+
+    foreach ($files as $file) {
+        $template                    = drupal_basename($file->filename, $extension);
+        $theme                       = str_replace('-', '_', $template);
+        list($base_theme, $specific) = explode('__', $theme, 2);
+
+        // Don't override base theme.
+        if (!empty($specific) && isset($theme_registry[$base_theme])) {
+            $theme_info = array(
+                'template' => $template,
+                'path' => drupal_dirname($file->uri),
+                'base hook' => $base_theme,
+                // Other available value: theme_engine.
+                'type' => 'module',
+                'theme path' => $module_path,
+            );
+            $theme_registry[$theme] = $theme_info;
+        }
+    }
 }
 
 /**
