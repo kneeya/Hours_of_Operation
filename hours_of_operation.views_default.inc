@@ -33,6 +33,16 @@ function hours_of_operation_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['label'] = 'Notices';
+  $handler->display->display_options['header']['area']['content'] = 'All hours of operation are subject to change without notice.
+<br>
+<br>
+All locations are closed on statutory holidays unless noted otherwise.';
+  $handler->display->display_options['header']['area']['format'] = 'uw_tf_standard';
   /* Field: Field: Choose an image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -41,7 +51,7 @@ function hours_of_operation_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'medium',
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
@@ -151,6 +161,11 @@ function hours_of_operation_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Notices'),
+    t('All hours of operation are subject to change without notice.
+<br>
+<br>
+All locations are closed on statutory holidays unless noted otherwise.'),
     t('Block'),
     t('Page'),
   );
