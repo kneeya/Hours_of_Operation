@@ -146,11 +146,8 @@ All locations are closed on statutory holidays unless noted otherwise.';
     'uw_food_outlet' => 'uw_food_outlet',
   );
 
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'hours_of_operation');
-
   /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler = $view->new_display('page', 'Page', 'hours_of_operation');
   $handler->display->display_options['path'] = 'hours-of-operation';
   $translatables['hours_of_operation'] = array(
     t('Master'),
@@ -166,7 +163,6 @@ All locations are closed on statutory holidays unless noted otherwise.';
 <br>
 <br>
 All locations are closed on statutory holidays unless noted otherwise.'),
-    t('Block'),
     t('Page'),
   );
   $export['hours_of_operation'] = $view;
