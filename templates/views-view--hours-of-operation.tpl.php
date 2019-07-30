@@ -50,6 +50,8 @@
         </div>
     <?php endif; ?>
 
+    <hr>
+
     <?php if ($rows): ?>
         <div class="view-content">
             <?php print $rows; ?>
