@@ -89,18 +89,48 @@ function hours_of_operation_menu() {
 function uw_food_services_admin_page($form, &$form_state) {
     $form = array();
     $form['fs_hours_of_operation_description'] = array(
+        //'#type' => 'text_format',
         '#type' => 'textarea',
         '#title' => t('Hours of Operation Description'),
         '#default_value' => variable_get('fs_hours_of_operation_description', ''),
-        '#description' => t("Header description of the hours of operation listing page."),
+        '#description' => t("Header description of the hours of operation listing page. Input format Full HTML."),
+        '#format' => 'uw_tf_basic',
         '#required' => TRUE,
     );
+    $form['fs_nutrition_information'] = array(
+        //'#type' => 'text_format',
+        '#type' => 'textarea',
+        '#title' => t('Nutrition Information'),
+        '#default_value' => variable_get('fs_nutrition_information', ''),
+        '#description' => t("This information is added beneath the Nutrition Table on every food item page. Input format Full HTML."),
+        '#format' => 'uw_tf_basic',
+        '#required' => TRUE,
+    );
+//    $form['fs_hours_of_operation_description']['format'] = filter_default_format();
     $form = system_settings_form($form);
     return $form;
 }
 
 /**
- *  Implements hook_permission().
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Hides text format.
+ */
+function hours_of_operation_form_uw_food_services_admin_page_alter(&$form, &$form_state) {
+   // $form['#after_build'][] = '_hours_of_operation_hide_text_format';
+}
+
+/**
+ * Helper function for hook_form_alter().
+ */
+function _hours_of_operation_hide_text_format(&$form) {
+    $form['fs_hours_of_operation_description']['format']['#access'] = false;
+    return $form;
+}
+
+
+/**
+ * Implements hook_permission().
  */
 function hours_of_operation_permission() {
     return array(
@@ -112,19 +142,22 @@ function hours_of_operation_permission() {
 }
 
 /**
- *  Implements hook_block_info().
+ * Implements hook_block_info().
  */
 function hours_of_operation_block_info() {
     $blocks['hours_of_operation_header'] = array(
         // info: The name of the block.
         'info' => t('Hours of Operation Header'),
     );
-
+    $blocks['uw_ct_food_nutrition_information'] = array(
+        // info: The name of the block.
+        'info' => t('Nutrition Information'),
+    );
     return $blocks;
 }
 
 /**
- *  Implements hook_block_view().
+ * Implements hook_block_view().
  */
 function hours_of_operation_block_view($delta = '') {
     // The $delta parameter tells us which block is being requested.
@@ -135,8 +168,13 @@ function hours_of_operation_block_view($delta = '') {
             $block['content'] = variable_get('fs_hours_of_operation_description', '');
 
             break;
-    }
+        case 'uw_ct_food_nutrition_information':
+            // Create your block content here
 
+            $block['content'] = variable_get('fs_nutrition_information', '');
+
+            break;
+    }
     return $block;
 }
 
