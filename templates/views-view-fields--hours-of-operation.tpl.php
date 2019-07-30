@@ -25,7 +25,7 @@
  */
 
 ?>
-<a name="nid<?php print $fields['nid']->raw; ?>"/>
+<a name="nid<?php print $fields['nid']->raw; ?>"></a>
 <span class="new-font">
 <?php hours_of_operation_field_output($fields, 'title'); ?>
 <div align="center" class="col-33 first">
