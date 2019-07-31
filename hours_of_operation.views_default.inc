@@ -33,16 +33,6 @@ function hours_of_operation_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['label'] = 'Notices';
-  $handler->display->display_options['header']['area']['content'] = 'All hours of operation are subject to change without notice.
-<br>
-<br>
-All locations are closed on statutory holidays unless noted otherwise.';
-  $handler->display->display_options['header']['area']['format'] = 'uw_tf_standard';
   /* Field: Field: Choose an image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
@@ -122,6 +112,12 @@ All locations are closed on statutory holidays unless noted otherwise.';
     'show_repeat_rule' => 'show',
   );
   $handler->display->display_options['fields']['field_hours_change']['delta_offset'] = '0';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -158,11 +154,6 @@ All locations are closed on statutory holidays unless noted otherwise.';
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Notices'),
-    t('All hours of operation are subject to change without notice.
-<br>
-<br>
-All locations are closed on statutory holidays unless noted otherwise.'),
     t('Page'),
   );
   $export['hours_of_operation'] = $view;

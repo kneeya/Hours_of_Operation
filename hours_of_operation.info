@@ -1,5 +1,5 @@
 name = Hours of Operation
-description = Hours of operation page.
+description = Hours of operation view for food services.
 core = 7.x
 package = Views
 version = 7.x-1.0-alpha4
