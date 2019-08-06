@@ -178,4 +178,16 @@ function hours_of_operation_block_view($delta = '') {
     return $block;
 }
 
+/**
+ * Implements hook_preprocess_html().
+ *
+ *  Add wide class to hours of operations page.
+ */
+function hours_of_operation_preprocess_html(&$variables) {
+    $args = arg ();
+    if (in_array('hours-of-operation', $args)) {
+        $variables ['classes_array'][] = 'wide';
+    }
+}
+
 
