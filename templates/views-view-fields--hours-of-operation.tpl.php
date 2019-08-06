@@ -26,11 +26,13 @@
 ?>
 <!--<a name="nid--><?php //print $fields['nid']->raw; ?><!--"></a>-->
 <span id="nid<?php print $fields['nid']->raw; ?>" class="new-font">
-<?php hours_of_operation_field_output($fields, 'title'); ?>
+<?php //hours_of_operation_field_output($fields, 'title'); ?>
 <div align="center" class="col-33 first">
     <?php hours_of_operation_field_output($fields, 'field_image'); ?>
 </div>
 <div class="col-66">
+    <div class="outlet-title"><?php hours_of_operation_field_output($fields, 'title'); ?></div>
+<div class="outlet-location"><?php hours_of_operation_field_output($fields, 'field_outlet_location'); ?></div>
     <div class="opening"><?php hours_of_operation_field_output($fields, 'field_opening_hours'); ?></div>
     <?php if(!empty($fields['field_date_closed']) || !empty($fields['field_hours_change'])) { ?>
     <ul class="exceptions_list">
@@ -166,5 +168,4 @@
         } ?>
     </ul>
 </div>
-<div class="outlet-location"><?php hours_of_operation_field_output($fields, 'field_outlet_location'); ?></div>
 </span>
