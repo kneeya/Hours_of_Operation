@@ -75,7 +75,7 @@ function hours_of_operation_field_exception(&$fields, $fieldname) {
  */
 function hours_of_operation_menu() {
     $items = array();
-    $items['admin/settings/food-services'] = array(
+    $items['admin/config/system/food-services'] = array(
         'title' => 'Food Services Settings',
         'description' => 'Site-wide Food Services settings.',
         'page callback' => 'drupal_get_form',
