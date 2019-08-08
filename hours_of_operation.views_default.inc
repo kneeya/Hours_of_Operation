@@ -45,6 +45,13 @@ function hours_of_operation_views_default_views() {
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Location */
   $handler->display->display_options['fields']['field_outlet_location']['id'] = 'field_outlet_location';
   $handler->display->display_options['fields']['field_outlet_location']['table'] = 'field_data_field_outlet_location';
