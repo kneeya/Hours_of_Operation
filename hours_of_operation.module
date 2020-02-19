@@ -81,3 +81,33 @@ function hours_of_operation_preprocess_html(&$variables) {
 }
 
 
+/**
+ * Implements hook_menu().
+ */
+function hours_of_operation_menu() {
+    $items['admin/config/system/hours_of_operation_settings'] = array(
+        'title' => 'Hours of operation settings',
+        'description' => 'Settings for the hours of operation page.',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('hours_of_operation_settings_form'),
+        'access arguments' => array('create uw_food_outlet content'), //anyone who can create food outlet content can access the settings page
+    );
+    return $items;
+}
+
+
+/**
+ * Menu callback; Config form.
+ */
+function hours_of_operation_settings_form($form, &$form_state) {
+    $form['views_rename_hours_of_operation_disclaimer'] = array(
+        '#type' => 'textarea',
+        '#title' => t('Hours of operation disclaimer'),
+        '#default_value' => variable_get('views_rename_hours_of_operation_disclaimer', ''),
+        '#description' => t('Enter text used to make a disclaimer about the hours of operation. Leave blank to have no introduction. (Note that text cannot contain HTML, extra tabs and spaces will be ignored.)'),
+        '#cols' => 60,
+        '#rows' => 3,
+        '#required' => FALSE,
+    );
+    return system_settings_form($form);
+}

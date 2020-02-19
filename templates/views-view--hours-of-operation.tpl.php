@@ -50,12 +50,22 @@
         </div>
     <?php endif; ?>
 
+    <!-- Disclaimer text form -->
+        <p style='white-space: pre-line; line-height: 20px; margin-top: 0'>
+            <?php echo check_plain(variable_get('views_rename_hours_of_operation_disclaimer')); ?>
+        </p>
+
     <hr>
+
+    <p style="text-align: center; font-size: 18px; letter-spacing: 2px"> <?php echo date('F jS, Y'); ?></p>
 
     <?php if ($rows): ?>
         <div class="view-content">
+            <div class="outlet-grid-container">
             <?php print $rows; ?>
         </div>
+        </div>
+
 
     <?php elseif ($empty): ?>
         <div class="view-empty">

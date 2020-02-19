@@ -24,14 +24,21 @@
  * @ingroup views_templates
  */
 ?>
+    <a id="nid<?php print $fields['nid']->raw; ?>"/>
+
 <span id="nid<?php print $fields['nid']->raw; ?>" class="new-font">
+
 <?php //hours_of_operation_field_output($fields, 'title'); ?>
+<!-- <div class="outlet-section"> -->
 <div align="center" class="col-33 first">
+
     <?php hours_of_operation_field_output($fields, 'field_image'); ?>
 </div>
 <div class="col-66">
     <div class="outlet-title"><?php hours_of_operation_field_output($fields, 'title'); ?></div>
 <div class="outlet-location"><?php hours_of_operation_field_output($fields, 'field_outlet_location'); ?></div>
+</div>
+    <div class="outlet-info">
     <div class="opening"><?php hours_of_operation_field_output($fields, 'field_opening_hours'); ?></div>
     <?php if(!empty($fields['field_date_closed']) || !empty($fields['field_hours_change'])) { ?>
     <ul class="exceptions_list">
@@ -64,12 +71,15 @@
                 $close_month_from = substr($close_date_from, 5, 2);
                 $close_month_to = substr($close_date_to, 5, 2);
 
+                $display_month_from_format = uw_month_name_short($date->format('n'));
+                $display_month_to_format = uw_month_name_short($date2->format('n'));
+                $display_date_from_format = date_format($date, "jS");
+                $display_date_to_format = date_format($date2, "jS");
+
+
                 // Exception - field_date_closed: has End Date (same year).
                 if (strcmp($close_year_from, $close_year_to) === 0) {
-                    $display_month_from_format = uw_month_name_short($date->format('n'));
-                    $display_month_to_format = uw_month_name_short($date2->format('n'));
-                    $display_date_from_format = date_format($date, "jS");
-                    $display_date_to_format = date_format($date2, "jS");
+
 
                     // Exception - Closed: has End Date (same year, same month and different date.)
                     if (strcmp($close_month_from, $close_month_to) === 0) {
@@ -167,4 +177,6 @@
         } ?>
     </ul>
 </div>
+<!--</div> -->
 </span>
+
